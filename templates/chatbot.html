@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+
+<body>
+
+    <div>
+        {% if chat_history %}
+            <div>
+                <h3>Chat History:</h3>
+                <ul>
+                    {% for message in chat_history %}
+                        <li><strong>{{ message.role.capitalize() }}:</strong> {{ message.content }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+
+    <form method="post" action="{{url_for('chatbot')}}">
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message" required>
+        <button type="submit">Send</button>
+    </form>
+
+
+</body>
+</html>
