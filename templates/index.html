@@ -1,15 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chatbot</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Screen</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #F2D68A;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #home-container {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #home-title {
+      font-size: 60px;
+      color: #40917A;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      text-decoration: underline;
+    }
+
+    .home-button {
+      background-color: #40917A;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      border: none;
+      border-radius: 15px;
+      padding: 15px 30px;
+      margin: 10px;
+      width: 200px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .home-button:hover {
+      background-color: #307760;
+    }
+  </style>
 </head>
-
-
 <body>
-    <form method="post" action="{{ url_for('chatbot') }}">
-        <label for="message">Message:</label>
-        <input type="text" id="message" name="message" required>
-        <button type="submit">Send</button>
-    </form>
+  <div id="home-container">
+    <div id="home-title">Name</div>
+    <a href="trivia.html" class="home-button">Trivia</a>
+    <a href="chatbot.html" class="home-button">Chatbot</a>
+    <a href="therapy.html" class="home-button">Therapy</a>
+  </div>
 </body>
 </html>
