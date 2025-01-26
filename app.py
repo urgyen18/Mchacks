@@ -68,7 +68,7 @@ def chatbot():
 def ambience():
     return render_template("ambience.html")
 
-@app.route("/trivia", methods=["POST", "GET"])
+@app.route("/chatroom", methods=["POST", "GET"])
 def trivia():
     session.clear()
     if request.method == "POST":
@@ -78,29 +78,29 @@ def trivia():
         create = request.form.get("create", False)
 
         if not name:
-            return render_template("trivia.html", code=code, name=name)
+            return render_template("chatroom.html", code=code, name=name)
 
         if join != False and not code:
-            return render_template("trivia.html", code=code, name=name)
+            return render_template("chatroom.html", code=code, name=name)
 
         room = code
         if create != False:
             room = generate_unique_code(4)
             rooms[room] = {"members": 0, "messages": []}
         elif code not in rooms:
-            return render_template("trivia.html", code=code, name=name)
+            return render_template("chatroom.html", code=code, name=name)
 
         session["room"] = room
         session["name"] = name
         return redirect(url_for("room"))
 
-    return render_template("trivia.html")
+    return render_template("chatroom.html")
 
 @app.route("/room")
 def room():
     room_code = session.get("room")
     if room_code not in rooms:
-        return redirect(url_for("trivia.html"))
+        return redirect(url_for("chatroom.html"))
     
     return render_template("room.html", room_code=room_code)
 
