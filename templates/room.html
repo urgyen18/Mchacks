@@ -5,6 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia Room</title>
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+    <style>
+        body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+                background-color: #F2D68A;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                }
+    
+            #home-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            }
+    
+            #home-title {
+            font-size: 60px;
+            color: #40917A;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-decoration: underline;
+            }
+    
+            .home-button {
+            background-color: #40917A;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            border-radius: 15px;
+            padding: 15px 30px;
+            margin: 10px;
+            width: 200px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            margin-top: 50px;
+            }
+
+            .home-button:hover {
+            background-color: #307760;
+            }
+
+            button {
+            background-color: #40917A;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            button:hover {
+            background-color: #307760;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #40917A;
+            font-weight: bold;
+        }
+
+        strong {
+            color: #40917A;
+        }
+
+        #message {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: flex-start;
+            margin-left: 20px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        h2 {
+            color: #40917A;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #40917A;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            margin-top: 30px;
+            margin-left: -10px;
+            text-align: left;
+        }
+    </style>
+
 </head>
 <body>
     <h1>Your room code is: {{ room_code }}</h1>
@@ -12,7 +132,7 @@
     <div class="message-box">
         <h2>Chat Room: {{code}}</h2>
         <div id="messages"></div>
-        <input type="text" id="message" placeholder="Message" />
+        <input type="text" id="message"/>
         <button id="send-btn" onclick="sendMessage()">Send</button>
     </div>
 
