@@ -1,29 +1,29 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Title</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #F2D68A; /* Same pale yellow background */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    h1 {
-      font-size: 50px;
-      color: #40917A; /* Green text color */
-      text-transform: uppercase;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
 </head>
 <body>
-  <h1>Page Title</h1>
+<div>
+<form method="post" class="buttons"> 
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Pick a name!" name="name" value="{{ name }}"/>
+    </div>
+
+    <div class = "join">
+        <label for="code">Room Code:</label>
+        <input type="text" id="code" placeholder="Room code" name="code" value="{{ code }}"/>
+        <button type="submit" name="join">Join a Room</button>
+    </div>
+    <button type="submit" name="create" class="create-btn">Create a Room</button>
+</form>
+    {% if room_code %}
+        <h2>Your Room Code is: {{ room_code }}</h2>
+    {% endif %}
+</div>
 </body>
 </html>
