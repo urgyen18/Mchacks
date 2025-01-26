@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Ambience</title>
+
+    <style>
+
+    body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #F2D68A;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            }
+
+        #home-container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        }
+
+        #home-title {
+        font-size: 60px;
+        color: #40917A;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        text-decoration: underline;
+        }
+
+        .home-button {
+        background-color: #40917A;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        border: none;
+        border-radius: 15px;
+        padding: 15px 30px;
+        margin: 10px;
+        width: 200px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        }
+
+        .home-button:hover {
+        background-color: #307760;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="home-container">
+    <div style="text-align: center;">
+        <iframe id="mainVideo" width="1000" height="600" src="https://www.youtube.com/embed/59fHDWDhzkY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div id="button">
+        <button class="home-button" onclick="changeVideo()">Bamboo Forest</button>
+    </div>
+
+    <script>
+        function changeVideo() {
+            const iframe = document.getElementById("mainVideo");
+            iframe.src = "https://www.youtube.com/embed/-9KMGpl1ptQ"; 
+        }
+    </script>
+    </div>
+
+
+</body>
+</html>
