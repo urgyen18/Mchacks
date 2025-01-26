@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Room</title>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Your room code is: {{ room_code }}</h1>
+
+    <div class="message-box">
+        <h2>Chat Room: {{code}}</h2>
+        <div id="messages"></div>
+        <input type="text" id="message" placeholder="Message" />
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+    </div>
+
+    <script type="text/javascript">
+        const socketio = io();
+    
+        const messages = document.getElementById("messages");
+        const messageInput = document.getElementById("message");
+    
+        socketio.on("message", (data) => {
+            messages.innerHTML += `<div><strong>${data.name}</strong>: ${data.message}</div>`;
+        });
+
+        socketio.on('connect', () => {
+            const room = "{{ room_code }}"; 
+            socketio.emit('join', { room: room });
+        });
+
+        const sendMessage = () => {
+            const message = messageInput.value.trim();
+            if (message) {
+                socketio.emit("message", { data: message });
+                messageInput.value = ""; 
+            }
+        };
+    </script>
+    
+</body>
+</html>
