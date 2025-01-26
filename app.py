@@ -44,6 +44,9 @@ def chatbot():
 
     return render_template("chatbot.html", user_input=user_input, bot_response=bot_response, chat_history=session['chat_history'])
 
+@app.route("/ambience")
+def ambience():
+    return render_template("ambience.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
