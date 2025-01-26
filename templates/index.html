@@ -28,6 +28,7 @@
       font-weight: bold;
       text-transform: uppercase;
       margin-bottom: 20px;
+      margin-left: 20px;
       text-decoration: underline;
     }
 
@@ -51,14 +52,27 @@
     .home-button:hover {
       background-color: #307760;
     }
+
+    img {
+      position: absolute;
+      top: 50%;
+      right: 400px;
+      transform: translateY(-60%);
+      max-width: 250px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
   </style>
 </head>
 <body>
   <div id="home-container">
-    <div id="home-title">Name</div>
-    <a href="trivia.html" class="home-button">Trivia</a>
+    <div id="home-title">Boardom</div>
+    <a href="{{ url_for('trivia') }}" class="home-button">Chat Room</a>
     <a href="{{ url_for('chatbot') }}" class="home-button">Chatbot</a>
     <a href="{{ url_for('ambience') }}" class="home-button">Therapy</a>
+    <img src="https://ih1.redbubble.net/image.5039439169.4758/raf,360x360,075,t,fafafa:ca443f4786.jpg" alt="Decorative Image">
   </div>
 </body>
 </html>
