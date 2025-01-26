@@ -5,21 +5,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia Game</title>
+
+    <style>
+
+        body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+                background-color: #F2D68A;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                }
+    
+            #home-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            }
+    
+            #home-title {
+            font-size: 60px;
+            color: #40917A;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-decoration: underline;
+            }
+    
+            .home-button {
+            background-color: #40917A;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            border-radius: 15px;
+            padding: 15px 30px;
+            margin: 10px;
+            width: 200px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            margin-top: 50px;
+            }
+
+            .home-button:hover {
+            background-color: #307760;
+            }
+
+            button {
+            background-color: #40917A;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            button:hover {
+            background-color: #307760;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #40917A;
+            font-weight: bold;
+        }
+
+        strong {
+            color: #40917A;
+        }
+
+        #message {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: flex-start;
+            margin-left: 20px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+    
+        </style>
 </head>
 <body>
 <div>
 <form method="post" class="buttons"> 
     <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" placeholder="Pick a name!" name="name" value="{{ name }}"/>
+        <input type="text" id="name" name="name" value="{{ name }}"/>
     </div>
 
     <div class = "join">
         <label for="code">Room Code:</label>
-        <input type="text" id="code" placeholder="Room code" name="code" value="{{ code }}"/>
+        <input type="text" id="code" name="code" value="{{ code }}"/>
         <button type="submit" name="join">Join a Room</button>
     </div>
+
+    <div id="home-button" style="margin-top: 30px;">
     <button type="submit" name="create" class="create-btn">Create a Room</button>
+    </div>
 </form>
     {% if room_code %}
         <h2>Your Room Code is: {{ room_code }}</h2>
